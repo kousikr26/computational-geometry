@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css"
+	integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w=="
+	crossorigin="anonymous" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<title>Computational Geometry</title>
+</head>
+
+
+<body>
+	<h3 class="display-3"> Convex Hull Algorithms</h2>
+	
+	<div class="d-flex justify-content-center "
+		style="margin-top:20px;margin-left:20%;margin-right:20% ">
+		<div class="blog-post">
+			<h2 class="blog-post-title">Gift Wrapping / Jarvis March Algorithm</h2>
+			
+		
+			<!-- <p>The Gift Wrapping algorithm is an algorithm for computing the convex hull of a given set of points. It can be used to find the convex hull of a set of points in 3D space. In the 2D case the algorithm is also know are Jarvis march.</p>
+			<hr>
+			<p>The algorithm has a time complexity of O(nh) where n is the number of points and h is the number of points on the convex hull.</p>
+			
+			<h2>Algorithm</h2>
+
+			<ul>
+				<li>Find the bottom-most point p</li>
+				<li>Donec id elit non mi porta gravida at eget metus.</li>
+				<li>Nulla vitae elit libero, a pharetra augue.</li>
+			</ul>
+			
+			 -->
+			<!-- <pre><code>
+			algorithm jarvis(S){
+				// S is the set of points
+				// P will be the set of points which form the convex hull. Final set size is i.
+
+				pointOnHull = bottom-most point in S // which is guaranteed to be part of the CH(S)
+				i = 0
+				while(endpoint != P[0]){
+					P[i] = pointOnHull
+					endpoint = S[0] // initial endpoint for a candidate edge on the hull
+					for j from 0 to |S| {
+						if (endpoint == pointOnHull) or (S[j] is on left of line from P[i] to endpoint){
+							endpoint := S[j] // found greater left turn, update endpoint
+						}
+					}
+					i = i + 1
+					pointOnHull = endpoint
+				}
+			
+			}
+			</code></pre> -->
+			
+			
+			
+		</div><!-- /.blog-post -->
+	</div>
+	<h3>Simulation</h3>
+	
+	
+	<div id="jarvismarch" class="border border-dark" style="margin:20px;padding-bottom: 20px;"></div>
+	<h3>Controls</h3>
+	<div style="text-align: center;font-size: smaller;">Click Execute to start <br />Number of points and generation method
+		can be changed when algorithm is halted</div>
+	<div id = "jarvisMarchControls" class="d-flex justify-content-center border border-dark rounded" style="margin-top:20px;margin-left:20%;margin-right:20% ">
+		
+		<button type="button" id="executeJarvisMarch" class="btn btn-success btn-lg" onclick="executeJarvisMarch()"
+			style="margin:10px">Execute</button>
+		<div style="margin:10px;margin-right:50px;">
+			<input id="numPointsSlider" type="text" data-slider-min="10" data-slider-max="210" data-slider-step="25"
+				data-slider-value="50" />
+			<span style="margin:5px"><strong>Number of Points : </strong><span id="numPointsSliderVal">50</span></span>
+			<br />
+			<input id="speedSlider" type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1"
+				data-slider-value="5" />
+			<span id="speedCurrentSliderValLabel" style="margin:5px"><strong>Speed :</strong> <span id="speedSliderVal">5</span></span>
+	
+		</div>
+		<div style="margin:10px">
+			<span ><strong>Point generation method : </strong> </span>
+			<div class="btn-group dropup">
+				<button id="dropdownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					Rectangular
+				</button>
+				<div class="dropdown-menu">
+					<button id="dropdownRectangular" class="dropdown-item" type="button"onclick="dropdownRectangular('jarvisMarch')">Rectangular</button>
+					<button id="dropdownSpherical" class="dropdown-item" type="button" onclick="dropdownSpherical('jarvisMarch')">Circular</button>
+					<button id="dropdownElliptical" class="dropdown-item" type="button" onclick="dropdownElliptical('jarvisMarch')">Elliptical</button>
+					
+				</div>
+			</div>
+		
+		</div>
+	
+	
+	</div>
+	
+	<h2 class="display-4" style="margin-top:50px"> Quick Hull</h2>
+	<h3>Simulation</h3>
+	<div id="quickhull" class="border border-dark" style="margin:20px;padding-bottom: 20px;"></div>
+	<h3>Controls</h3>
+	<div style="text-align: center;font-size: smaller;">Click Execute to start <br />Number of points and generation method
+		can be changed when algorithm is halted</div>
+	<div id = "quickHullControls" class="d-flex justify-content-center border border-dark rounded" style="margin-top:20px;margin-left:20%;margin-right:20% ">
+		
+		<button type="button" id="executeQuickHull" class="btn btn-success btn-lg" onclick="executeQuickHull()"
+			style="margin:10px">Execute</button>
+		<div style="margin:10px;margin-right:50px;">
+			<input id="numPointsSlider" type="text" data-slider-min="10" data-slider-max="210" data-slider-step="25"
+				data-slider-value="50" />
+			<span style="margin:5px"><strong>Number of Points : </strong><span id="numPointsSliderVal">50</span></span>
+			<br />
+			<input id="speedSlider" type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1"
+				data-slider-value="5" />
+			<span id="speedCurrentSliderValLabel" style="margin:5px"><strong>Speed :</strong> <span id="speedSliderVal">5</span></span>
+	
+		</div>
+		<div style="margin:10px">
+			<span ><strong>Point generation method : </strong> </span>
+			<div class="btn-group dropup">
+				<button id="dropdownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					Rectangular
+				</button>
+				<div class="dropdown-menu">
+					<button id="dropdownRectangular" class="dropdown-item" type="button"onclick="dropdownRectangular('quickHull')">Rectangular</button>
+					<button id="dropdownSpherical" class="dropdown-item" type="button" onclick="dropdownSpherical('quickHull')">Circular</button>
+					<button id="dropdownElliptical" class="dropdown-item" type="button" onclick="dropdownElliptical('quickHull')">Elliptical</button>
+					
+				</div>
+			</div>
+		
+		</div>
+	
+	
+	</div>
+	<hr>
+	<!-- <div id = "jarvismarch"></div> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.js"
+	integrity="sha512-tCkLWlSXiiMsUaDl5+8bqwpGXXh0zZsgzX6pB9IQCZH+8iwXRYfcCpdxl/owoM6U4ap7QZDW4kw7djQUiQ4G2A=="
+	crossorigin="anonymous"></script>
+<script src="https://rawgit.com/jonobr1/two.js/dev/build/two.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="styles.css">
+<script src="base.js"> </script>
+<script  src="jarvismarch.js"> </script>
+<script  src="quickhull.js"> </script>
+<script src="execution.js""> </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
