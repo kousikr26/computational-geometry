@@ -1,4 +1,3 @@
-var params = { width: window.innerWidth, height: 0.7 * window.innerHeight };
 var quickHullCanvas = new Two(params).appendTo(document.getElementById('quickhull'));
 quickHullContext = {}
 quickHullContext.points = [];

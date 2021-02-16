@@ -1,13 +1,13 @@
 var divsize = 5;
-var marginY = 0.4 * window.innerHeight;
-var marginX = 0.2 * window.innerWidth;
-var params = { width: window.innerWidth, height: 0.7 * window.innerHeight };
+var marginY = 0.5 * window.innerHeight;
+var marginX = 0.4 * window.innerWidth;
+var params = { width: window.innerWidth, height: 0.9 * window.innerHeight };
 function makePoint(canvas,context,mode="normal") {
 
     if(mode == "normal"){
         var color = "#000000"
 
-        var posx = parseInt((marginX / 4.0 + Math.random() * (window.innerWidth - marginX)).toFixed());
+        var posx = parseInt((marginX / 10.0 + Math.random() * (window.innerWidth - marginX)).toFixed());
         var posy = parseInt((marginY / 10.0 + Math.random() * (window.innerHeight - marginY)).toFixed());
 
 
@@ -22,7 +22,7 @@ function makePoint(canvas,context,mode="normal") {
         var R = (window.innerHeight - marginY)/2.0;
         var r = R*Math.sqrt(Math.random());
         var theta = Math.random()*2*Math.PI;
-        var posx = parseInt((marginX / 4.0 + (window.innerWidth - marginX) / 2.0 + r * Math.cos(theta)).toFixed());
+        var posx = parseInt((marginX / 10.0 + (window.innerWidth - marginX) / 2.0 + r * Math.cos(theta)).toFixed());
         var posy = parseInt((marginX / 10.0 + (window.innerHeight - marginY) / 2.0 + r * Math.sin(theta)).toFixed());
         var circle = canvas.makeCircle(posx, posy, divsize);
         circle.fill = color;
@@ -42,7 +42,7 @@ function makePoint(canvas,context,mode="normal") {
                 break;
             }
         }
-        posx = parseInt((marginX / 4.0 +a+ tempx).toFixed());
+        posx = parseInt((marginX / 10.0 +a+ tempx).toFixed());
         posy = parseInt((marginY / 10.0 +b+ tempy).toFixed());
         var circle = canvas.makeCircle(posx, posy, divsize);
         circle.fill = color;

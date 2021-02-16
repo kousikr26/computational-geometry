@@ -2,9 +2,21 @@ html, body, svg {
   width: 100%;
   height: 100%;
   margin: 0;
+  
 }
 h1,h2,h3,h4,h5,h6 {
   text-align:center;
+  color : green;
+  
+}
+#jarvismarch{
+    background-color: #EDF5E1;
+    border-radius:2%;
+    
+}
+#quickhull{
+    background-color: #EDF5E1;
+    border-radius:2%;
 }
 
 /* stylelint-disable selector-list-comma-newline-after */
